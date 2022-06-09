@@ -5,7 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using Projeto01.Models;
 
-namespace Projeto01.Models
+namespace Projeto01.Context
 {
     public class EFContext : DbContext
     {
