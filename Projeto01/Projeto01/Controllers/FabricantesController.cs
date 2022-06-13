@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Projeto01.Context;
+using Projeto01.Models;
 
 namespace Projeto01.Controllers
 {
@@ -14,6 +15,22 @@ namespace Projeto01.Controllers
         public ActionResult Index()
         {
             return View(context.Fabricantes.OrderBy(c => c.Nome));
+        }
+
+        // GET: Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Fabricante fabricante)
+        {
+            context.Fabricantes.Add(fabricante);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
