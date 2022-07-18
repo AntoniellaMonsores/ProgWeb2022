@@ -55,13 +55,16 @@
 </div>
 
 @section styles{
-    <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/DataTables-1.10.2/css/dataTables.bootstrap.css")" rel="stylesheet" />
 }
 
 @section ScriptPage{
-    <script src="@Url.Content("~/scripts/DataTables/jquery.dataTables.js")"></script>
-    <script src="@Url.Content("~/scripts/DataTables/dataTables.bootstrap.js")"></script>
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/Scripts/DataTables-1.10.2/dataTables.bootstrap.js")"></script>
     <script type="text/javascript">
+        $('.table').dataTable({
+            "order": [[1, "asc"]]
+        });
         $(document).ready(function () {
             $('li').removeClass("active");
             $('#liFabricantes').addClass("active");
