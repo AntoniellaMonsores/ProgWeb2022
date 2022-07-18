@@ -12,17 +12,6 @@ namespace Projeto01.Controllers
 {
     public class CategoriasController : Controller
     {
-        /*
-        private static IList<Categoria> categorias = new List<Categoria>()
-        {
-            new Categoria() { CategoriaId = 1, Nome = "Notebooks"},
-            new Categoria() { CategoriaId = 2, Nome = "Monitores"},
-            new Categoria() { CategoriaId = 3, Nome = "Impressoras"},
-            new Categoria() { CategoriaId = 4, Nome = "Mouses"},
-            new Categoria() { CategoriaId = 5, Nome = "Desktops"}
-        };
-        */
-
         private EFContext context = new EFContext();
         // GET: Categorias
         public ActionResult Index()
@@ -30,14 +19,6 @@ namespace Projeto01.Controllers
             return View(context.Categorias.OrderBy(c => c.Nome));
         }
 
-        /*
-        // GET: Categorias
-        public ActionResult Index()
-        {
-            return View(categorias);
-        }
-        */
- 
         // GET: Create
         public ActionResult Create()
         {
@@ -53,32 +34,6 @@ namespace Projeto01.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        /*// POST: Categorias Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Categoria categoria)
-        {
-            context.Categorias.Add(categoria);
-            categoria.CategoriaId = context.Categorias.Select(m => m.CategoriaId).Max() + 1;
-            return RedirectToAction("Index");
-        }*/
-
-        /*// GET: Categorias Edit
-        public ActionResult Edit(long id)
-        {
-            return View(context.Categorias.Where(m => m.CategoriaId == id).First());
-        }
-
-        // POST: Categorias Edit
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Categoria categoria)
-        {
-            context.Categorias.Remove(context.Categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
-            context.Categorias.Add(categoria);
-            return RedirectToAction("Index");
-        }*/
 
         // GET: Edit
         public ActionResult Edit(long? id)
@@ -108,27 +63,6 @@ namespace Projeto01.Controllers
             }
             return View(categoria);
         }
-
-        /*// GET: Categorias Details
-        public ActionResult Details(long id)
-        {
-            return View(context.Categorias.Where(m => m.CategoriaId == id).First());
-        }
-
-        // GET: Categorias Delete
-        public ActionResult Delete(long id)
-        {
-            return View(context.Categorias.Where(m => m.CategoriaId == id).First());
-        }
-
-        // POST: Categorias Delete
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Categoria categoria)
-        {
-            context.Categorias.Remove(context.Categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
-            return RedirectToAction("Index");
-        }*/
 
         // GET: Details
         public ActionResult Details(long? id)
